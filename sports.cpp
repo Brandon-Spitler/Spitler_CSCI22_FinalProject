@@ -23,6 +23,11 @@ precondition
 end point in hash table are marked a NULL pointers
 string is short enough were acsiic value of al the charters is an int
 
+$
+finds and returns player in hash table with name = string name
+if not in hash table it will display not found and will return NULL
+$
+
 postconditons returns the player is he is in the hash table if not it doesnt retrun anything; could cause problems in code if 
 players is not in hash table
 */
@@ -37,6 +42,7 @@ player * sport::findPlayer(string name) {
 	}
 	if (cur == NULL) {
 		cout << "not found" << endl;
+		return NULL;
 	}
 	else
 	{
@@ -46,6 +52,10 @@ player * sport::findPlayer(string name) {
 }
 /*
 precondition charters sumed into ascic values are short enough to be stored an an int
+
+$
+finds the returns index that string name will be located in the hash table
+$
 
 postcondition returns the placement index for the string name into the hash table of size ten as an int
 */
@@ -63,6 +73,11 @@ int sport::indexat(string name) {
 /*
 precondtions relies onf indexat precondtions being met
 
+$
+insterts player into hash table at the correct index for string na,e
+player will be the first put into the first value of the hash table pushing all players back
+$
+
 postcondtion a player with string name will be added to the hash table no stats w2ill be added to him threw this method
 */
 void sport::insertPlayer(string name) {
@@ -77,6 +92,10 @@ void sport::insertPlayer(string name) {
 /*
 precondtion hashtable iss full of player data types or nothing
 	-hashtable is size ten
+
+$
+prints all players and all of their stat in for all players in the HashTable
+$
 
 postcondition all players will be printed on screen
 	-returns and chnages nothing withen the hash table
@@ -102,7 +121,13 @@ void sport::printPlayers() {
 
 /*
 precondtions player with string name exists in the hash table;
-	every athlese has a the same statlabel withen in the vector position
+	every athlese has a the same statlabel withen in the next vector position
+		this is needed to keep parrel stqt vectors
+
+$
+finds player with name
+adds stat to them with label statlebel and value n staat
+$
 
 postcondtions
 	finds players and gives then a new stat called string stat label with the value of nstat
@@ -118,6 +143,20 @@ void sport::findandaddstat(string name, string statlabel, double nstat) {
 precondtions
 	-player incoming exists
 	-incomings new vector postions for stat has the same index for the stat label that every other player has
+	-mean,tnill,nillstat and standard devation player have been created
+	-number os stat have been declared and assigned to how many values are in each players vector
+
+$
+adds stat to player incoming
+creates new stat
+if it is the first vector of this stat label 
+	-it adds player incoming to the next place in vector
+	-adds a statnill value to tnil
+	-adds a 0 value with label stat label to mean and standard devatioin
+	-increments numberofstats by 1;
+makes incoming stat red
+adds stat to tree
+$
 
 postconditons
 	-creates new stat
@@ -161,6 +200,12 @@ precondition
 	-every players vector contains the same stats label in every index of there vector
 	-incoming stat at players index i in players vector is red
 
+$
+adds the perviouse created stat in add stat to player to the binary tree of index i
+if its is a root value makes red false
+calls treefixup
+$
+
 postcondition
 	-correctly adds the stat to a tree of stats with index i
 	-calls adfixup to balence tree after value is added
@@ -202,6 +247,10 @@ precondition
 	-all players vector of stat at index contains the same statlabel
 	-tnil vectors are statnills at postion i
 	-statnills are black
+$
+balances red black tree;
+resets root to black
+$
 
 postcondition
 	-balences red black bianry tree of vector i
@@ -269,6 +318,10 @@ precondition
 	-player with name exists
 	-player has the same stat that evey other player has
 
+$
+creates player and adds stats to player looping through the stats that everyother player has
+adds the stats to binary tree
+$
 postcondition
 	-adds all stats that everyother player as to player with name name
 	-keeps players vector parrel to each other
@@ -293,7 +346,9 @@ precondition
 	-player is already added to vector tree
 	-player as stat at vector player stats index
 	-tree is a vali binary tree
-
+$
+left rotatate to balaence red black bianary tree and maintain bianary properties
+$
 postcondition
 	-rotates the around x shift y to x postion and x up to y postion
 	-maintains valid binary tree
@@ -330,6 +385,10 @@ precondition
 	-player as stat at vector player stats index
 	-tree is a vali binary tree
 
+&
+right rotatates to balaence red black bianary tree and maintain bianary properties
+&
+
 postcondition
 	-rotates the around x shift y to x postion and x up to y postion
 	-maintains valid binary tree
@@ -362,7 +421,9 @@ precondition
 	-players have a stat at index
 	-cur exists
 	-preRank come in as 0 to begin with
-
+$
+gives each playeys stat at index i a rank with numbr 1 going to the lowest number
+$
 postcondition
 	-give ranks to each player based on the stat value at index i lowest gets the number 1 ranks highest gets the last rank
 */
@@ -391,6 +452,9 @@ precondition
 	-players have been assined to root
 	-vector of stats for players is the same size as root
 	-valid binary tree
+$
+calls ranks assing for all bianary trees so that every stat a player has ahas a rank
+$
 
 postcondition
 	-gives ever stat a player has a rank 
@@ -405,6 +469,9 @@ void sport::callrankassign() {
 /*
 precondition
 	-root at index exists
+$
+calls then funtion to print range of ranks
+$
 
 postcondition
 	-calls recusiverangeRank \|/ with starting values
@@ -421,7 +488,9 @@ precondition
 	-cur player exists
 	-tnil exists
 	-all players have the same stat label to compate at index i
-
+$
+prints all player with stats at index i stats between hght and low
+$
 
 postcondition
 	-outputs all players with stat and index i that has a balue between hght and low
@@ -444,6 +513,9 @@ precondition
 	-ranksAssing has been caled/|\ for stats at index i
 	-cur player exists
 	-all players have the same stat label to compate at index i
+$
+prints all player with stats at index i ranked between hght and low
+$
 
 postcondition
 	-outputs all players that are ranked between hgih and low
@@ -485,6 +557,9 @@ precondtion
 	-all player stats have labels
 	-playerstats are all parrrel to each other for each player
 	-root has elements in it
+$
+finds asnd returns the index where statlabel of stattofind is
+$
 
 postcondtion
 	-returns the index of player stats that the stat occurs at
@@ -504,6 +579,10 @@ int sport::findindexofstat(string stattofind) {
 precondtion
 	-root has players in it
 
+$
+find the index of stattofind and calls recrusiveRangeRang to print all players between the two values of
+$
+
 postcondtion
 	-calls recursiveRangeRank /|\ with specific start values
 
@@ -519,6 +598,10 @@ void sport::callrecursiveRank(string stattofind, int high, int low) {
 precondtion
 	-root has players in it
 
+$
+finds the index where stattofind occurs at and the print off all stats between hgh and low
+$
+
 postcondtion
 	-calls recursiveRangeStats/|\ with spcific stat values
 */
@@ -533,7 +616,11 @@ void sport::callrecursivestats(string stattofind, double high, double low) {
 /*
 precondtion
 	-player cur exists and has at leat one stat
-
+$
+prints cur players stats
+in the form
+	"name of stat: value of stat ->...repteaed format for every stat"
+$
 postcondtion
 	-prints players
 
@@ -552,6 +639,11 @@ void sport::printplayersstats(player * cur) {
 precondtion
 	-player with string name exists
 
+$
+finds a player with string name
+and then prints all of his stats
+$
+
 postcondtion
 	-doesnt effect a structure just prints;
 */
@@ -565,6 +657,9 @@ precondtion
 	-mean player has been created;
 	-has a parrell vector to all players with starting value at each stat 0
 	-libabry math used for funtions called in this funtion
+$
+calcuated both meanplayer and stadard devatation player
+$
 
 postcondtion
 	-mean player wil have the mean off all players stats created in the same index with the same label as the players stats
@@ -585,8 +680,10 @@ void sport::calculateMeanPlayernstandarddeveation() {
 /*
 precondtion
 	-calcualte MeanPlayernstandarddeviation /|\ has been called
-	-root has values
-
+	-root has value
+$
+displays all of the player means values
+$
 postcondtion
 	-doenst change a structure just diplays the mean value of all players stats at each index
 
@@ -602,7 +699,9 @@ void sport::displayMean() {
 precondtion
 	-calcualte MeanPlayernstandarddeviation /|\ has been called
 	-root has values
-
+$
+displays all of players standard devations values and stats
+$
 postcondtion
 	-doenst change a structure just diplays the standard devation value of all players stats at each index
 
@@ -620,7 +719,10 @@ precondtion
 	-cur player exists
 	-root has values at index
 	-mean player has been put to 0
+$
+sums up all of the players values and stores them in the index they came from in player m then returns total number of players
 
+$
 
 postcondtion
 	-returns the number of athlets
@@ -646,8 +748,10 @@ precondtion
 	-cur player exists
 	-root has values at index
 	-standard devation player has been put to 0
-
-
+	-uses math libary
+$
+takes the stat of mean at index index and subtacts the by the cur playrs stat at index i then squares the value and sums all of them up; 
+$
 postcondtion
 	-assigns standardDevation player stats at index with the sum of all mena stats at index i value- the value of the players stats at index squared
 */
