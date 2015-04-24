@@ -1,0 +1,11 @@
+stats,Apps,Mins,Goals,Assists,Yel,Number of Red,spg,Ps,aerialsWon,Motm,rating
+Lieonel Messi,31,2835,35,16,3,0,4.8,82.8,.3,22,8.78
+Arjen Robben,20,1679,17,7,0,0,4.2,83.1,.9,10,8.48
+Cristiano Ronald,29,2591,39,14,5,1,6.4,81.3,1.6,14,8.47
+Eden Hazard,32,2841,13,8,2,0,2.1,86.9,.4,9,8.07
+Keven De Bruyne,29,2602,10,17,2,0,,73.9,.6,5
+Alexis Sanchez,28,2413,14,8,4,0,3.2,76.8,.8,7,7.91
+Neymar,23,2033,18,5,5,0,2.7,80.4,.6,1,7.9
+James Rodriquez,23,1780,10,9,5,0,2,87.3,.3,2
+Naldo,28,2519,6,2,5,0,1.6,83.4,5,4,7.83
+Ricardo Rodriquez,22,1959,6,3,2,0,1.2,81.2,3.3,3,7.8
