@@ -1,15 +1,21 @@
-Enter file contents here#ifndef SPORTS_H
+#ifndef SPORTS_H
 #define SPORTS_H
-#include <vector>
-#include <iostream>
+#include <vector>;
+#include <iostream>;
+#include <fstream>;
+#include <sstream>;
+#include <cmath>;
 using namespace std;
-
+struct playerstat;
+struct player;
+struct game;
 struct playerstat {
 	string label;
-	int stat;
+	double stat;
 	bool isRed;
-	player *leftplayer;
-	player *rightplayer;
+	int rank;
+	player * leftplayer;
+	player * rightplayer;
 	player * parent;
 };
 
@@ -40,23 +46,43 @@ struct game {
 
 class sport
 {
+public:
 	sport();
+	void addStatstoinsteredplayer(string name);
 	void treesipalyrangeofstats(int, int, int);
-	vector <player*> root;
-	void createPlayer(string, int);
-	void addfixup(player *,int);
-	void leftrotate(player *,int);
-	void addStattoPlayer(player *, string, int);
-	void rightrotate(player*,int);
+	//vector <player*> root;
+	//void createPlayer(string, int);
+	void addfixup(player *, int);
+	void leftrotate(player *, int);
+	void addStattoPlayer(player *, string, double);
+	void rightrotate(player*, int);
 	void addStatToTree(player *, int);
 	player * findPlayer(string);
+	void printAPlayer(string);
 	void printPlayers();
-	void findandaddstat(string,string,int);
-public:
-
+	void findandaddstat(string, string, double);
+	void recursiveRangeRank(player*, int, int, int);
+	void recursiveRangestats(player*, double, double, int);
+	int assignRanks(int index, player * cur, int prevRank);
+	void insertPlayer(string);
+	void callrankassign();
+	//void printall(player* cur, int index);
+	//void callprintall();
+	int findindexofstat(string );
+	void callrecursiveRank(string, int, int);
+	void callrecursivestats(string, double, double);
+	void printplayersstats(player *);
+	//void changeAllOfAPlayersStats(string);
+	//void changeaPlaysSingleStat(string, string);
+	void calculateMeanPlayernstandarddeveation();
+	void calculateStandardDeviatoinPlayer(player* ,int);
+	int recursiveMean(player*, int);
+	void displayMean();
+	void dsiplaystanarddevation();
 protected:
 private:
-	void insertPlayer(string);
+	player * mean;
+	player * standardDevation;
 	int indexat(string);
 	player * tnil;
 	vector <player *> root;
