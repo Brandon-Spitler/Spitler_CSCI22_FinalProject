@@ -1,5 +1,5 @@
 # Spitler_CSCI22_FinalProject
-Project is a sports player hodler
+Project is a sports player handler
 
 each player has a vector of stats that is parrell to other players vectors so that the stats labels at the same at every index
   stats have labels values and red
