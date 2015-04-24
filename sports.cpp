@@ -397,7 +397,7 @@ void sport::rightrotate(player * x, int index) {
 	player * y = x->playerstats[index]->leftplayer;
 	x->playerstats[index]->leftplayer = y->playerstats[index]->rightplayer;
 	if (y->playerstats[index]->rightplayer != tnil) {
-		y->playerstats[index]->parent = x;//look at this later doesnt make siince ys parent should arleady be x
+		y->playerstats[index]->rightplayer->playerstats[index]->parent = x;
 	}
 	y->playerstats[index]->parent = x->playerstats[index]->parent;
 	if (x->playerstats[index]->parent == tnil) {
