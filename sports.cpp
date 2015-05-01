@@ -437,7 +437,7 @@ int sport::assignRanks(int index, player * cur, int prevRank) {
 	}
 	cur->playerstats[index]->rank = rank+1;
 	rank = rank + 1;
-	//cout <<cur->name <<" : " << index<<" : "<< cur->playerstats[index]->stat << " : " << cur->playerstats[index]->rank << endl;
+	cout <<cur->name <<" : " << index<<" : "<< cur->playerstats[index]->stat << " : " << cur->playerstats[index]->rank << endl;
 	if (cur->playerstats[index]->rightplayer != tnil) {
 		//cout << "1-" << rank << endl;
 		rank = assignRanks(index, cur->playerstats[index]->rightplayer, rank);
@@ -521,14 +521,14 @@ postcondition
 	-outputs all players that are ranked between hgih and low
 */
 void sport::recursiveRangeRank(player* cur, int hght, int low, int index) {
-	if (cur->playerstats[index]->leftplayer != tnil && cur->playerstats[index]->leftplayer->playerstats[index]->rank<hght) {
-		recursiveRangestats(cur->playerstats[index]->leftplayer, hght, low, index);
+	if (cur->playerstats[index]->leftplayer != tnil && cur->playerstats[index]->leftplayer->playerstats[index]->rank>=low) {
+		recursiveRangeRank(cur->playerstats[index]->leftplayer, hght, low, index);
 	}
-	if (cur->playerstats[index]->stat<hght && cur->playerstats[index]->stat<low) {
+	if (cur->playerstats[index]->rank<=hght && cur->playerstats[index]->rank>=low) {
 		printplayersstats(cur);
 	}
-	if (cur->playerstats[index]->rightplayer != tnil && cur->playerstats[index]->rightplayer->playerstats[index]->rank>low) {
-		recursiveRangestats(cur->playerstats[index]->rightplayer, hght, low, index);
+	if (cur->playerstats[index]->rightplayer != tnil && cur->playerstats[index]->rightplayer->playerstats[index]->rank<=hght) {
+		recursiveRangeRank(cur->playerstats[index]->rightplayer, hght, low, index);
 	}
 }
 
