@@ -437,7 +437,7 @@ int sport::assignRanks(int index, player * cur, int prevRank) {
 	}
 	cur->playerstats[index]->rank = rank+1;
 	rank = rank + 1;
-	cout <<cur->name <<" : " << index<<" : "<< cur->playerstats[index]->stat << " : " << cur->playerstats[index]->rank << endl;
+	//cout <<cur->name <<" : " << index<<" : "<< cur->playerstats[index]->stat << " : " << cur->playerstats[index]->rank << endl;
 	if (cur->playerstats[index]->rightplayer != tnil) {
 		//cout << "1-" << rank << endl;
 		rank = assignRanks(index, cur->playerstats[index]->rightplayer, rank);
