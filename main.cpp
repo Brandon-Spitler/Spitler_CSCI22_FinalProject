@@ -110,19 +110,20 @@ int main(int argc, char* argv[])
 			g->calculateMeanPlayernstandarddeveation();
 			break;
 		case 2:
-			cout << "enter stat to find" << endl;
+			cout << "enter stat to rank by" << endl;
 			getline(std::cin, temp);
 
 			cout << "high" << endl;
 			getline(std::cin, shigh);
-			stringstream(answer) >> high;
+			high = stoi(shigh);
 			//stringstream ss(answer);
 			//ss >> high;
 
 			cout << "low" << endl;
 			getline(std::cin, slow);
+			low = stoi(slow);
 			//stringstream ss(answer); 
-			stringstream(answer) >> low;
+			//stringstream(answer) >> low;
 			//ss >> low;
 			g->callrecursiveRank(temp, high, low);
 
@@ -134,14 +135,16 @@ int main(int argc, char* argv[])
 
 			cout << "high" << endl;
 			getline(std::cin, shigh);
-			stringstream(shigh) >> dhigh;
+
+			dhigh = stod(shigh);
 
 			//stringstream ss(answer);
 			//ss >> high;
 			cout << "low" << endl;
 			//stringstream ss(answer); 
 			getline(std::cin, slow);
-			stringstream(slow) >> dlow;
+			//stringstream(slow) >> dlow;
+			dlow = stod(slow);
 			//ss >> low;
 			g->callrecursivestats(temp, dhigh, dlow);
 
