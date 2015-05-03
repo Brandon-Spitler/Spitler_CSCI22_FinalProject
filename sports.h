@@ -1,10 +1,10 @@
 #ifndef SPORTS_H
 #define SPORTS_H
-#include <vector>;
-#include <iostream>;
-#include <fstream>;
-#include <sstream>;
-#include <cmath>;
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <cmath>
 using namespace std;
 struct playerstat;
 struct player;

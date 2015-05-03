@@ -1,5 +1,5 @@
-#include "sports.h";
-#include <sstream>;
+#include "sports.h"
+#include <sstream>
 sport::sport() {
 	tnil = new player;
 	tnil->name = "tnil";
