@@ -500,17 +500,16 @@ postcondition
 
 */
 void sport::recursiveRangestats(player* cur, double hght, double low, int index) {
-	if (cur->playerstats[index]->leftplayer != tnil && cur->playerstats[index]->leftplayer->playerstats[index]->stat<hght) {
+	if (cur->playerstats[index]->leftplayer != tnil && cur->playerstats[index]->leftplayer->playerstats[index]->stat>low) {
 		recursiveRangestats(cur->playerstats[index]->leftplayer, hght, low, index);
 	}
 	if (cur->playerstats[index]->stat<hght && cur->playerstats[index]->stat>low) {
 		printplayersstats(cur);
 	}
-	if (cur->playerstats[index]->rightplayer != tnil && cur->playerstats[index]->rightplayer->playerstats[index]->stat>low) {
+	if (cur->playerstats[index]->rightplayer != tnil && cur->playerstats[index]->rightplayer->playerstats[index]->stat<hght) {
 		recursiveRangestats(cur->playerstats[index]->rightplayer, hght, low, index);
 	}
 }
-
 /*
 precondition
 	-ranksAssing has been caled/|\ for stats at index i
