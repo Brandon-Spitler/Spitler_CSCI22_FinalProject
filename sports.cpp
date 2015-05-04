@@ -70,14 +70,15 @@ int sport::indexat(string name) {
 }
 
 /*
-precondtions relies onf indexat precondtions being met
-
+precondtions relies on indexat precondtions being met
+hashtable having been created
 $
-insterts player into hash table at the correct index for string na,e
-player will be the first put into the first value of the hash table pushing all players back
+insterts player into hash table at the correct index for string name
+player will be the first put into the first value of the hash table pushing all players back farther into the hashtable
+hashtable values are not sorted in anywhy inside each index
 $
 
-postcondtion a player with string name will be added to the hash table no stats w2ill be added to him threw this method
+postcondtion a player with string name will be added to the hash table no stats will be added to him through this method
 */
 void sport::insertPlayer(string name) {
 	int index;
@@ -89,15 +90,16 @@ void sport::insertPlayer(string name) {
 	hashTable[index] = n1;
 }
 /*
-precondtion hashtable iss full of player data types or nothing
+precondtion hashtable is full of player data types or nothing meaning hash table has been created
 	-hashtable is size ten
+	-all players on the last funtion of an index in hashtable has been assined null as next
 
 $
 prints all players and all of their stat in for all players in the HashTable
 $
 
 postcondition all players will be printed on screen
-	-returns and chnages nothing withen the hash table
+	-returns and changes nothing withen the hash table
 */
 void sport::printPlayers() {
 	player * cur;
