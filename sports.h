@@ -76,7 +76,6 @@ public:
 	void dsiplaystanarddevation();
 protected:
 private:
-	int recursiveMean(player*, int);
 	int findindexofstat(string );
 	int assignRanks(int index, player * cur, int prevRank);
 	int recursiveMean(player*, int);
