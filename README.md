@@ -1,8 +1,8 @@
 # Spitler_CSCI22_FinalProject
 
 contributers
-main:Brandon Spitler
-
+Brandon Spitler
+zachkuzma
 
 installation guide
 download main, header, cpp and text file into one file and then run main
