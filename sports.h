@@ -9,6 +9,7 @@ using namespace std;
 struct playerstat;
 struct player;
 struct game;
+//each playerstat works like a node in a binary tree
 struct playerstat {
 	string label;
 	double stat;
@@ -18,17 +19,15 @@ struct playerstat {
 	player * rightplayer;
 	player * parent;
 };
-
+//creates a player
+//stats are saved in binary tree all players are saved in hash table
 struct player {
-	string name;
-	std::vector <playerstat*> playerstats;
-
-
-	//for team
-	player *hashTableNextPlayer;
-	player *hashTablePerviousePlayer;
+	string name;//players name
+	std::vector <playerstat*> playerstats;//list of players stats this has to be the same for very player right now
+	player *hashTableNextPlayer;//calls the next player in hash table
+	player *hashTablePerviousePlayer;//calls the perviouse player in hash table
 };
-
+//struct team not used for currently in program built in case any one wanted to build on to program
 struct team {
 	string name;
 	string teamName;
@@ -36,7 +35,7 @@ struct team {
 
 };
 
-
+//struct game not used for currently in program built in case any one wanted to build on to program
 struct game {
 	team * playedAgisnt;
 	int score;
@@ -47,7 +46,7 @@ struct game {
 class sport
 {
 public:
-	sport();
+	sport();//cunstructs basic things
 	void addStatstoinsteredplayer(string name);
 	void treesipalyrangeofstats(int, int, int);
 	//vector <player*> root;
