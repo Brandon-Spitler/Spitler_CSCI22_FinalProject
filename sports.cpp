@@ -21,16 +21,15 @@ sport::sport() {
 /*
 precondition
 end point in hash table are marked a NULL pointers
-string is short enough were acsiic value of al the charters is an int
-
+string is short enough were acsiic values can up to less int_MAX
 $
 finds and returns player in hash table with name = string name
 if not in hash table it will display not found and will return NULL
 $
 
-postconditons returns the player is he is in the hash table if not it doesnt retrun anything; could cause problems in code if 
-players is not in hash table
+postconditons returns the player is he is in the hash table if not returns null; could cause problems in code if players is not in hash table
 */
+
 player * sport::findPlayer(string name) {
 	int index = indexat(name);
 	player * cur = hashTable[index];
