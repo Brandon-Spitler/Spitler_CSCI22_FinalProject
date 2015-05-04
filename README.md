@@ -2,8 +2,7 @@
 
 contributers
 Brandon Spitler
-zachkuzma
-
+zachkuzma not zachkuzma proeject he just added somestuff that wasnt need in visual studios but was needed where he was running it
 installation guide
 download main, header, cpp and text file into one file and then run main
 
