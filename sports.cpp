@@ -123,11 +123,12 @@ void sport::printPlayers() {
 /*
 precondtions player with string name exists in the hash table;
 	every athlese has a the same statlabel withen in the next vector position
-		this is needed to keep parrel stqt vectors
+		this is needed to keep Parallel stat vectors for each player which is needed for later funtions
 
 $
 finds player with name
 adds stat to them with label statlebel and value n staat
+into next open slot on their stats vector
 $
 
 postcondtions
@@ -145,15 +146,15 @@ precondtions
 	-player incoming exists
 	-incomings new vector postions for stat has the same index for the stat label that every other player has
 	-mean,tnill,nillstat and standard devation player have been created
-	-number os stat have been declared and assigned to how many values are in each players vector
+	-number of stat have been declared and assigned to how many values are in each players vector
 
 $
 adds stat to player incoming
 creates new stat
-if it is the first vector of this stat label 
+if it is the first vector for this specific stat label  in other words not other player and reacher this index/size yet in their vector of stats
 	-it adds player incoming to the next place in vector
-	-adds a statnill value to tnil
-	-adds a 0 value with label stat label to mean and standard devatioin
+	-adds a statnill value to tnil increase tnill by one
+	-adds a 0 value with label stat label to mean and standard deviation
 	-increments numberofstats by 1;
 makes incoming stat red
 adds stat to tree
@@ -161,7 +162,7 @@ $
 
 postconditons
 	-creates new stat
-	-add the new stat to players next aviable postion in vector stats with a value nstat and the stat is name statlabel
+	-adds the new stat to players next aviable postion in vector stats with a value nstat and the stat is name statlabel
 	-calls funtion to add stat to binary tree
 	-if root size is smaller then the number of stat the athele has  then it adds another place to root with the new stat in the index place
 	-adds a place older to tnil which is just statnill so we can have parrell array
@@ -423,7 +424,7 @@ precondition
 	-cur exists
 	-preRank come in as 0 to begin with
 $
-gives each playeys stat at index i a rank with numbr 1 going to the lowest number
+gives each players stat at index i a rank with numbr 1 going to the lowest number then adds 1 to each number after that untill it reaches highest
 $
 postcondition
 	-give ranks to each player based on the stat value at index i lowest gets the number 1 ranks highest gets the last rank
@@ -454,11 +455,11 @@ precondition
 	-vector of stats for players is the same size as root
 	-valid binary tree
 $
-calls ranks assing for all bianary trees so that every stat a player has ahas a rank
+calls ranks assing for all bianary trees so that every stat a player has has a rank
 $
 
 postcondition
-	-gives ever stat a player has a rank 
+	-gives every stat a player has a rank 
 	-calls assignRanks /|\
 */
 void sport::callrankassign() {
@@ -491,10 +492,11 @@ precondition
 	-all players have the same stat label to compate at index i
 $
 prints all player with stats at index i stats between hght and low
+loops through the actuall stats value and dispays every player who has the stat at stat index between the two values hght and low
 $
 
 postcondition
-	-outputs all players with stat and index i that has a balue between hght and low
+	-outputs all players with stat and index i that has a value between hght and low
 
 */
 void sport::recursiveRangestats(player* cur, double hght, double low, int index) {
@@ -516,6 +518,8 @@ precondition
 	-all players have the same stat label to compate at index i
 $
 prints all player with stats at index i ranked between hght and low
+DOESNT print based on what value of stat an  individual has
+rather prints based on where the individuals lines up to compared to other individuals
 $
 
 postcondition
@@ -556,10 +560,11 @@ void sport::callprintall() {
 precondtion
 	-root has the same number of elemeents as playersttats do
 	-all player stats have labels
-	-playerstats are all parrrel to each other for each player
+	-playerstats are all Parallel to each other for each player
 	-root has elements in it
 $
 finds asnd returns the index where statlabel of stattofind is
+this will be the index for that stat in the vector stats for all players
 $
 
 postcondtion
@@ -600,7 +605,7 @@ precondtion
 	-root has players in it
 
 $
-finds the index where stattofind occurs at and the print off all stats between hgh and low
+finds the index where stattofind occurs at and then prints off all stats between hgh and low
 $
 
 postcondtion
@@ -659,7 +664,8 @@ precondtion
 	-has a parrell vector to all players with starting value at each stat 0
 	-libabry math used for funtions called in this funtion
 $
-calcuated both meanplayer and stadard devatation player
+calcuates both meanplayer and stadard devatation player
+based on what mean returns because mean returns the total number of players in the array while setting meanplayer = to the sum of all the stats at each index for each player
 $
 
 postcondtion
@@ -722,7 +728,7 @@ precondtion
 	-mean player has been put to 0
 $
 sums up all of the players values and stores them in the index they came from in player m then returns total number of players
-
+rutrns the number of players there are to be devided by later
 $
 
 postcondtion
