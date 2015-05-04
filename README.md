@@ -24,6 +24,8 @@ in the header you see a struct for a team I built head I never got to creating i
 curl downloader for players im still working on this i dont know if ill have it up and running anytime soon however
 a strut of positions that contains vector of sports so that you can separate out players better from which stats they will have and which stat they wont have
 
+main funtions printed out by menu and what they do 
+
 libraries used
 iostream
 vector
