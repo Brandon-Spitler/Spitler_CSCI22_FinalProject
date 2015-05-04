@@ -52,23 +52,19 @@ public:
 	void treesipalyrangeofstats(int, int, int);
 	//vector <player*> root;
 	//void createPlayer(string, int);
-	void addfixup(player *, int);
-	void leftrotate(player *, int);
-	void addStattoPlayer(player *, string, double);
-	void rightrotate(player*, int);
+
 	void addStatToTree(player *, int);
-	player * findPlayer(string);
+
 	void printAPlayer(string);
 	void printPlayers();
 	void findandaddstat(string, string, double);
-	void recursiveRangeRank(player*, int, int, int);
-	void recursiveRangestats(player*, double, double, int);
-	int assignRanks(int index, player * cur, int prevRank);
+
+	
 	void insertPlayer(string);
 	void callrankassign();
 	//void printall(player* cur, int index);
 	//void callprintall();
-	int findindexofstat(string );
+	
 	void callrecursiveRank(string, int, int);
 	void callrecursivestats(string, double, double);
 	void printplayersstats(player *);
@@ -76,11 +72,20 @@ public:
 	//void changeaPlaysSingleStat(string, string);
 	void calculateMeanPlayernstandarddeveation();
 	void calculateStandardDeviatoinPlayer(player* ,int);
-	int recursiveMean(player*, int);
+	
 	void displayMean();
 	void dsiplaystanarddevation();
 protected:
 private:
+	int recursiveMean(player*, int);
+	int findindexofstat(string );
+	int assignRanks(int index, player * cur, int prevRank);
+	int recursiveMean(player*, int);
+	player * findPlayer(string);
+	void recursiveRangeRank(player*, int, int, int);
+	void recursiveRangestats(player*, double, double, int);
+	void addfixup(player *, int);
+	void leftrotate(player *, int);
 	player * mean;
 	player * standardDevation;
 	int indexat(string);
@@ -89,6 +94,8 @@ private:
 	int numberOfStats;
 	playerstat * statnill;
 	player *hashTable[10];
+	void addStattoPlayer(player *, string, double);
+	void rightrotate(player*, int);
 };
 
 #endif // GRAPH_H
